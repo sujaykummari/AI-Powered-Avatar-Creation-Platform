@@ -86,16 +86,16 @@ function App() {
 
   if (isExpired && userSession) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-pink-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 to-pink-50 flex items-center justify-center p-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-white rounded-2xl shadow-xl p-8 max-w-md text-center"
+          className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 max-w-md w-full text-center"
         >
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl">⏰</span>
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Session Expired</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Session Expired</h2>
           <p className="text-gray-600 mb-6">Your hour has ended. Purchase another session to continue creating.</p>
           <button
             onClick={() => setShowPaymentModal(true)}
@@ -128,26 +128,26 @@ function App() {
         onLogout={handleLogout}
       />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="grid lg:grid-cols-2 gap-8 h-[calc(100vh-200px)]"
+          className="grid lg:grid-cols-2 gap-4 sm:gap-8 min-h-[calc(100vh-200px)]"
         >
           {/* Avatar Display */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="p-6 border-b border-gray-200">
-              <h2 className="text-xl font-semibold text-gray-800">Avatar Preview</h2>
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden order-2 lg:order-1">
+            <div className="p-4 sm:p-6 border-b border-gray-200">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-800">Avatar Preview</h2>
               <p className="text-sm text-gray-600">See your changes in real-time</p>
             </div>
-            <div className="p-6 h-full">
+            <div className="p-4 sm:p-6 h-full">
               <AvatarDisplay avatar={avatar} />
             </div>
           </div>
 
           {/* Customization Panel */}
-          <div className="h-full">
+          <div className="h-full order-1 lg:order-2">
             <CustomizationPanel
               avatar={avatar}
               onAvatarChange={setAvatar}
